@@ -1,43 +1,193 @@
-body{
-    text-align: center;
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;800&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-
-.btn{
-    height:200px;
-    width:200px;
-    border-radius: 20%;
-    border:10px solid black;
-    margin:2.5rem;
-}
-
-.btn-container{
+body {
+    min-height: 100vh;
     display: flex;
-    justify-content:center;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 25px 15px;
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    background:
+        radial-gradient(ellipse at top left, #24265c, transparent 45%),
+        radial-gradient(ellipse at bottom right, #42194d, transparent 45%),
+        #090b18;
 }
 
-
-.red{
-    background-color: #d95980;
+h1 {
+    margin-bottom: 12px;
+    font-family: 'Orbitron', sans-serif;
+    font-size: clamp(32px, 7vw, 48px);
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-align: center;
+    color: #ffffff;
+    text-shadow: 0 0 25px rgba(150, 130, 255, 0.45);
 }
 
-.yellow{
-    background-color: #f99b45;
+h2 {
+    margin: 10px 0 30px;
+    padding: 13px 22px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 500;
+    color: #c4baff;
+    background: rgba(137, 125, 255, 0.09);
+    border: 1px solid rgba(151, 145, 255, 0.25);
+    border-radius: 14px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
 }
 
-.green{
-    background-color: #63aa66;
+.btn-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 22px;
+    background: rgba(20, 23, 48, 0.85);
+    border: 1px solid rgba(153, 160, 255, 0.2);
+    border-radius: 28px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
 }
 
-.purple{
-    background-color: #819ff9;
+.line-one,
+.line-two {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
 }
 
-.flash{
-    background-color: white;
+.btn {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: clamp(115px, 30vw, 165px);
+    aspect-ratio: 1;
+    border: 3px solid rgba(255, 255, 255, 0.2);
+    border-radius: 25px;
+    color: rgba(255, 255, 255, 0.95);
+    font-family: 'Orbitron', sans-serif;
+    font-size: 30px;
+    font-weight: 800;
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s ease, filter 0.2s ease;
+    -webkit-tap-highlight-color: transparent;
 }
 
-.userFlash{
-    background-color: green;
+.btn::before {
+    content: "";
+    position: absolute;
+    top: 12%;
+    left: 14%;
+    width: 35%;
+    height: 12%;
+    background: rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    filter: blur(5px);
+    transform: rotate(-35deg);
+    pointer-events: none;
 }
 
+.red {
+    background: linear-gradient(145deg, #ff758e, #ff174f);
+    box-shadow:
+        0 7px 0 #a9002b,
+        0 12px 28px rgba(255, 23, 79, 0.25),
+        inset 0 2px 8px rgba(255, 255, 255, 0.2);
+}
+
+.yellow {
+    background: linear-gradient(145deg, #ffe878, #ffb800);
+    box-shadow:
+        0 7px 0 #a96d00,
+        0 12px 28px rgba(255, 190, 0, 0.2),
+        inset 0 2px 8px rgba(255, 255, 255, 0.25);
+}
+
+.green {
+    background: linear-gradient(145deg, #6effc0, #00c878);
+    box-shadow:
+        0 7px 0 #00764b,
+        0 12px 28px rgba(0, 220, 135, 0.2),
+        inset 0 2px 8px rgba(255, 255, 255, 0.25);
+}
+
+.purple {
+    background: linear-gradient(145deg, #c18aff, #852bff);
+    box-shadow:
+        0 7px 0 #5014a1,
+        0 12px 28px rgba(155, 72, 255, 0.25),
+        inset 0 2px 8px rgba(255, 255, 255, 0.25);
+}
+
+.btn:hover {
+    filter: brightness(1.15);
+    transform: translateY(-3px);
+}
+
+.btn:active {
+    transform: scale(0.96);
+    filter: brightness(1.3);
+}
+
+.flash {
+    filter: brightness(1.9) saturate(1.3);
+    transform: scale(1.05);
+    border-color: #ffffff;
+    box-shadow:
+        0 0 20px #ffffff,
+        0 0 40px rgba(255, 255, 255, 0.6);
+}
+
+.userFlash {
+    filter: brightness(1.7);
+    transform: scale(0.96);
+    border-color: #ffffff;
+    box-shadow:
+        0 0 18px #ffffff,
+        0 0 32px rgba(255, 255, 255, 0.6);
+}
+
+.game-over {
+    background: #7f1d35;
+}
+
+@media (max-width: 420px) {
+    .btn-container {
+        gap: 15px;
+        padding: 15px;
+        border-radius: 22px;
+    }
+
+    .line-one,
+    .line-two {
+        gap: 15px;
+    }
+
+    .btn {
+        width: 34vw;
+        max-width: 145px;
+        border-radius: 19px;
+        font-size: 24px;
+    }
+
+    h1 {
+        letter-spacing: 1px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+    }
+}
